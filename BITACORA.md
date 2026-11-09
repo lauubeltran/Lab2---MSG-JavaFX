@@ -5,5 +5,5 @@
 |---|---|---|
 | Integrador | Laura Beltran | lauubeltran |
 | Controlador | Ximena Lozano | chimena777 |
-| Formato y estilo |  | |
-| Vista |  |  |    
+| Formato y estilo | Juan Papa | Papitas-Chpzhp |
+| Vista | Youbry Camilo Mendoza  | camilomendoza527-sketch |    
