@@ -3,7 +3,7 @@
 ## Equipo
 | Rol | Nombre | Usuario de GitHub |
 |---|---|---|
-| Integrador | Juan Sebastian Papa | Papitas-Chipzhp |
-| Hipotecas | Laura Beltran | |
-| Inversiones | Ximena Lozano | |
-| Registro | Juan Sebastian Papa | Papitas-Chipzhp |    
+| Integrador | Laura Beltran | lauubeltran |
+| Controlador | Ximena Lozano | chimena777 |
+| Formato y estilo |  | |
+| Vista |  |  |    
