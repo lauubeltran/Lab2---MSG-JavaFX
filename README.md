@@ -8,6 +8,11 @@ sin implementar lanzan `UnsupportedOperationException("TODO")`. Por eso
 
 **Las pruebas no se modifican.** Si una parece incorrecta, se discute con el docente.
 
+## Requisitos
+
+- JDK 25 (el proyecto compila con `maven.compiler.release` configurado en 25).
+- Maven 3.9 o posterior.
+
 ## Roles
 
 | Rol | Rama | Archivos | Pruebas |
