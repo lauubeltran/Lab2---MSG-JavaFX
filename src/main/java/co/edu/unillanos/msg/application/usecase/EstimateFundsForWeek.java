@@ -3,8 +3,9 @@ package co.edu.unillanos.msg.application.usecase;
 import co.edu.unillanos.msg.application.port.InvestmentRepository;
 import co.edu.unillanos.msg.application.port.MortgageRepository;
 import co.edu.unillanos.msg.application.port.OperatingExpensesRepository;
+import co.edu.unillanos.msg.domain.Investment;
+import co.edu.unillanos.msg.domain.Mortgage;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -32,30 +33,42 @@ public final class EstimateFundsForWeek {
         this.expenses = Objects.requireNonNull(expenses);
     }
 
-    public BigDecimal execute() {
+    public double execute() {
         return totalInvestmentIncome()
-                .add(totalCoupleContributions())
-                .subtract(weeklyOperatingExpenses())
-                .subtract(totalEscrowPaid());
+                + totalCoupleContributions()
+                - weeklyOperatingExpenses()
+                - totalEscrowPaid();
     }
 
     /** Suma del rendimiento semanal de todas las inversiones. */
-    private BigDecimal totalInvestmentIncome() {
-        throw new UnsupportedOperationException("TODO");
+    private double totalInvestmentIncome() {
+        double total = 0;
+        for (Investment i : investments.findAll()) {
+            total += i.weeklyReturn();
+        }
+        return total;
     }
 
     /** Suma del aporte semanal de todas las parejas. */
-    private BigDecimal totalCoupleContributions() {
-        throw new UnsupportedOperationException("TODO");
+    private double totalCoupleContributions() {
+        double total = 0;
+        for (Mortgage m : mortgages.findAll()) {
+            total += m.weeklyCoupleContribution();
+        }
+        return total;
     }
 
     /** Gasto operativo de la semana. */
-    private BigDecimal weeklyOperatingExpenses() {
-        throw new UnsupportedOperationException("TODO");
+    private double weeklyOperatingExpenses() {
+        return expenses.current().weeklyAmount();
     }
 
     /** Suma del impuesto y seguro semanal de todas las hipotecas (RN8). */
-    private BigDecimal totalEscrowPaid() {
-        throw new UnsupportedOperationException("TODO");
+    private double totalEscrowPaid() {
+        double total = 0;
+        for (Mortgage m : mortgages.findAll()) {
+            total += m.weeklyEscrow();
+        }
+        return total;
     }
 }
