@@ -25,6 +25,16 @@ public final class RegisterMortgage {
      * Rechaza con IllegalStateException un número de hipoteca repetido.
      */
     public Mortgage execute(RegisterMortgageRequest request) {
-        throw new UnsupportedOperationException("TODO");
+        if (mortgages.findByNumber(request.mortgageNumber()).isPresent()) {
+            throw new IllegalStateException("Ya existe una hipoteca con número " + request.mortgageNumber());
+        }
+        Mortgage mortgage = new Mortgage(
+                request.mortgageNumber(),
+                request.weeklyPrincipalAndInterest(),
+                request.annualPropertyTax(),
+                request.annualInsurancePremium(),
+                request.coupleWeeklyIncome());
+        mortgages.save(mortgage);
+        return mortgage;
     }
 }

@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.edu.unillanos</groupId>
-    <artifactId>lab1-msg</artifactId>
+    <artifactId>lab2-msg</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Laboratorio 1 - MSG Foundation</name>
+    <name>Laboratorio 2 - MSG Foundation</name>
 
     <properties>
-        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.11.4</junit.version>
     </properties>
@@ -22,18 +22,16 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-controls</artifactId>
-    <version>21.0.5</version>
-</dependency>
-<dependency>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-fxml</artifactId>
-    <version>21.0.5</version>
-</dependency>
-
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21.0.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -58,13 +56,13 @@
                 </configuration>
             </plugin>
             <plugin>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-maven-plugin</artifactId>
-    <version>0.0.8</version>
-    <configuration>
-        <mainClass>co.edu.unillanos.msg.App</mainClass>
-    </configuration>
-</plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>co.edu.unillanos.msg.App</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

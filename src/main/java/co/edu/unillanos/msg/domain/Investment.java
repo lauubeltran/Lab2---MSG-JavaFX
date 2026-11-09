@@ -1,6 +1,5 @@
 package co.edu.unillanos.msg.domain;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -12,14 +11,16 @@ import java.util.Objects;
  */
 public final class Investment {
 
+    private static final double WEEKS_PER_YEAR = 52.0;
+
     private final String investmentId;
     private final String description;
-    private final BigDecimal annualExpectedReturn;
+    private final double annualExpectedReturn;
 
-    public Investment(String investmentId, String description, BigDecimal annualExpectedReturn) {
+    public Investment(String investmentId, String description, double annualExpectedReturn) {
         this.investmentId = Objects.requireNonNull(investmentId);
         this.description = Objects.requireNonNull(description);
-        this.annualExpectedReturn = Objects.requireNonNull(annualExpectedReturn);
+        this.annualExpectedReturn = annualExpectedReturn;
     }
 
     public String investmentId() {
@@ -30,12 +31,12 @@ public final class Investment {
         return description;
     }
 
-    public BigDecimal annualExpectedReturn() {
+    public double annualExpectedReturn() {
         return annualExpectedReturn;
     }
 
     /** RN6: rendimiento anual esperado / 52, en dólares con 2 decimales. */
-    public BigDecimal weeklyReturn() {
-        throw new UnsupportedOperationException("TODO");
+    public double weeklyReturn() {
+        return annualExpectedReturn / WEEKS_PER_YEAR;
     }
 }
